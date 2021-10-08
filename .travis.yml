@@ -1,0 +1,19 @@
+language: python
+python:
+- '3.6'
+- '3.7'
+- '3.8'
+- '3.9'
+script:
+- python setup.py test
+- python setup.py sdist
+deploy:
+  provider: pypi
+  server: https://testpypi.python.org/pypi
+  username: __token__
+  skip_existing: true
+  on:
+    branch: main
+    tags: true
+  password:
+    secure: eWbFieAx+NuG5Q3hU2CicVX1uZxFUThiy2WH4uegP1Uogke6D5OgtvAT8Xqtyx3RROgyJdb9bc33GeQmJ8jhK0rHAZstzdeRfqshNb2Za2qgyiQ90trFyjj0Y+7HNyKdfEshpcfs6kWGW6eAmHhq9AWHC1LjOolN83EIRJMAhTC4jlst2WPmNxRxWuHNyL1WBDvhY6xlu82XvFiwJXe5Td8dVK7MIvLOPLmRHtxG35jTPD9WZ+O1cq6uYQxBUYCsbj5m1bgMunYZeaSVrmoAbbCBYxyTIUtkLkj8r9NlsEyxjVD5UXYyLFttfNdTloLJaukia38bSrMbwySMBol18OvTCEWiauAcAwD4ltJ4rf1cKQf4YYzhZ5DoFHqCClhgFZVZk73gLmAP6k4oAx1Dzv+5SbZNWGRkUASuLmm/qHLpnxjdgsjVeCSNVtXboLHuGPX1uPW+Pv3cq2a+qeItYRLyqYSZZB3qeSD29yalNE+W54cwYeId+4OUHrrEUIjBum0yOzcLeXtaICSLhH8rSXgOpnf2TzZY6Ml/eOvtv35DTCfz9HqHDiPBacKU7pIGjwR5PQ+qNjRJdeVtBe3BzO4kZWaKTRGxwgSemaRAZzbEWZxqWUHRwQMcLAdSCb92X9K08DnmRi+w6Qx6lm7us7bak8cEtHEogp0h9yCrgxU=
